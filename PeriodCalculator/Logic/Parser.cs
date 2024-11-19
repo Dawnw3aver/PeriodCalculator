@@ -37,14 +37,11 @@ namespace PeriodCalculator.Logic
                 int startHour = int.Parse(lines[baseIndex + startHourOffset]);
                 int endHour = int.Parse(lines[baseIndex + endHourOffset]);
 
-                periods.Add(new Period
-                {
-                    DaysOfWeek = daysOfWeek,
-                    StartDate = startDate,
-                    EndDate = endDate,
-                    StartHour = startHour,
-                    EndHour = endHour
-                });
+                var period = Period.Create(daysOfWeek, startDate, endDate, startHour, endHour);
+                if (!string.IsNullOrEmpty(period.error))
+                    throw new InvalidOperationException(period.error);
+
+                periods.Add(period.value);
             }
 
             return periods;
