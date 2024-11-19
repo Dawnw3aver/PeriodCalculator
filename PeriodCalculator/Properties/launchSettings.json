@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PeriodCalculator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
